@@ -3,6 +3,18 @@
 
     <string name="app_name">AdvancedDemos</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    
+    <string name="act_home_drawer_open">Open Drawer</string>
+    <string name="act_home_drawer_close">Close Drawer</string>
+    
+    <string-array name="act_home_drawer_array">
+        <item>Simple Fragment</item>
+        <item>Simple List Fragment</item>
+        <item>Simple Grid Fragment</item>
+        <item>Simple Web Fragment</item>
+        <item>Nested Fragments</item>
+        <item>Simple ViewPager</item>
+        <item>Error Creator</item>
+    </string-array>
 
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="act_home_drawer_background">#F2F2F2</color>
+    
+    <color name="row_drawer_text">#000</color>
+</resources>
