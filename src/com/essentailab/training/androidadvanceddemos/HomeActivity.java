@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
@@ -15,15 +18,28 @@ import android.widget.Toast;
 
 import com.essentailab.training.androidadvanceddemos.adapter.SimpleListAdapter;
 import com.essentailab.training.androidadvanceddemos.entities.DrawerItem;
+import com.essentailab.training.androidadvanceddemos.fragment.GridViewFragment;
+import com.essentailab.training.androidadvanceddemos.fragment.SimpleFragment;
 
 public class HomeActivity extends ActionBarActivity {
+	
+	private final static int FRAG_TYPE_ABOUT = 0;
+	private final static int FRAG_TYPE_SIMPLE = 1;
+	private final static int FRAG_TYPE_GRID = 2;
+	private final static int FRAG_TYPE_WEB = 3;
+	private final static int FRAG_TYPE_NESTED = 4;
+	private final static int FRAG_TYPE_VIEWPAGER = 5;
+	private final static int FRAG_TYPE_ERROR = 6;
+	
+	private final static String BUNDLE_SAVED_FRAGTAG = "FRAGTAG";
+	private final static String BUNDLE_SAVED_TITLE = "TITLE";
 
 	private String[] mDrawerTitles;
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
-	private CharSequence mTitle;
-	private CharSequence mDrawerTitle;
+	private String mTitle;
 	private ActionBarDrawerToggle mDrawerToggle;
+	private String currentFragTag;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +50,35 @@ public class HomeActivity extends ActionBarActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.act_home_drawerlayout);
         mDrawerList = (ListView) findViewById(R.id.act_home_drawer);
         
-        mTitle = mDrawerTitle = getTitle();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction t = fm.beginTransaction();
+        if (savedInstanceState!=null){
+        	mTitle = savedInstanceState.getString(BUNDLE_SAVED_TITLE);
+        	getSupportActionBar().setTitle(mTitle);
+        	currentFragTag = savedInstanceState.getString(BUNDLE_SAVED_FRAGTAG);
+        	
+        }else{
+        	mTitle = (String) getTitle();
+            currentFragTag = SimpleFragment.class.getName();
+            t.add(R.id.act_home_container_root,
+            		SimpleFragment.newInstance("HELLO!"),
+            		currentFragTag);
+        }
+        t.commit();
+        
         mDrawerToggle = new ActionBarDrawerToggle(
         		this,
                 mDrawerLayout,         
                 R.drawable.ic_drawer,
                 R.string.act_home_drawer_open,
-                R.string.act_home_drawer_close
-                ) {
+                R.string.act_home_drawer_close){
 
             public void onDrawerClosed(View view) {
                 getSupportActionBar().setTitle(mTitle);
             }
 
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle(mDrawerTitle);
+                getSupportActionBar().setTitle(mTitle);
             }
         };
         
@@ -74,6 +104,13 @@ public class HomeActivity extends ActionBarActivity {
 		mDrawerList.setAdapter(new SimpleListAdapter(data,
         		getLayoutInflater(), R.layout.row_drawer, R.id.row_drawer_img, R.id.row_drawer_txt));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+	}
+	
+	@Override
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+	    super.onSaveInstanceState(savedInstanceState);
+	    savedInstanceState.putString(BUNDLE_SAVED_FRAGTAG, currentFragTag);
+	    savedInstanceState.putString(BUNDLE_SAVED_TITLE, mTitle);
 	}
 	
 	@Override
@@ -104,11 +141,33 @@ public class HomeActivity extends ActionBarActivity {
 	}
 
 	private void selectItem(int position) {
+		if(position!=FRAG_TYPE_ABOUT && position!=FRAG_TYPE_GRID){
+			return;
+		}
 	    mDrawerList.setItemChecked(position, true);
 	    mTitle=mDrawerTitles[position];
 	    getSupportActionBar().setTitle(mTitle);
 	    mDrawerLayout.closeDrawer(mDrawerList);
 	    
 	    Toast.makeText(getApplicationContext(), "Pressed: "+mTitle, Toast.LENGTH_LONG).show();
+	    
+	    FragmentManager fm = getSupportFragmentManager();
+	    FragmentTransaction t = fm.beginTransaction();
+	    t.remove(fm.findFragmentByTag(currentFragTag));
+	    Fragment f = null;
+	    
+	    switch(position){
+	    case FRAG_TYPE_ABOUT:
+	    	f = SimpleFragment.newInstance("HELLO!");
+	    	currentFragTag = SimpleFragment.class.getName();
+	    	break;
+	    case FRAG_TYPE_GRID:
+	    	f = new GridViewFragment();
+	    	currentFragTag = GridViewFragment.class.getName();
+	    	break;
+	    }
+	    
+	    t.add(R.id.act_home_container_root, f, currentFragTag);
+        t.commit();
 	}
 }

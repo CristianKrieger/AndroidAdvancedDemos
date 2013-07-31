@@ -3,4 +3,8 @@
     <color name="act_home_drawer_background">#F2F2F2</color>
     
     <color name="row_drawer_text">#000</color>
+    
+    <color name="frag_simple_txt_title_background">#33b5e5</color>
+    <color name="frag_simple_txt_title">#000</color>
+    <color name="frag_simple_txt_description">#333</color>
 </resources>
