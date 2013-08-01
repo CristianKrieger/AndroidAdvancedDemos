@@ -7,4 +7,12 @@
     <color name="frag_simple_txt_title_background">#33b5e5</color>
     <color name="frag_simple_txt_title">#000</color>
     <color name="frag_simple_txt_description">#333</color>
+    
+    <!-- LISTVIEW HEADER -->
+    <color name="lv_header_txt_color">#33b5e5</color>
+    <color name="lv_header_underline">#33b5e5</color>
+    
+    <!-- LISTVIEW ROW ITEM -->
+    <color name="lv_row_time_background">#EAEAEA</color>
+    <color name="lv_row_txt_location">#828282</color>
 </resources>

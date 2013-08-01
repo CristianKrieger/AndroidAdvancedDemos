@@ -18,8 +18,14 @@ import android.widget.Toast;
 
 import com.essentailab.training.androidadvanceddemos.adapter.SimpleListAdapter;
 import com.essentailab.training.androidadvanceddemos.entities.DrawerItem;
+import com.essentailab.training.androidadvanceddemos.entities.HeadedList;
+import com.essentailab.training.androidadvanceddemos.fragment.AsyncTaskFragment;
 import com.essentailab.training.androidadvanceddemos.fragment.GridViewFragment;
+import com.essentailab.training.androidadvanceddemos.fragment.ListFragment;
 import com.essentailab.training.androidadvanceddemos.fragment.SimpleFragment;
+import com.essentailab.training.androidadvanceddemos.interfaces.ListHeaderInflationAction;
+import com.essentailab.training.androidadvanceddemos.interfaces.ListItemInflationAction;
+import com.essentailab.training.androidadvanceddemos.listener.ListOnItemClickListener;
 
 public class HomeActivity extends ActionBarActivity {
 	
@@ -141,9 +147,9 @@ public class HomeActivity extends ActionBarActivity {
 	}
 
 	private void selectItem(int position) {
-		if(position!=FRAG_TYPE_ABOUT && position!=FRAG_TYPE_GRID){
-			return;
-		}
+//		if(position!=FRAG_TYPE_ABOUT && position!=FRAG_TYPE_GRID && position!=FRAG_TYPE_SIMPLE){
+//			return;
+//		}
 	    mDrawerList.setItemChecked(position, true);
 	    mTitle=mDrawerTitles[position];
 	    getSupportActionBar().setTitle(mTitle);
@@ -160,6 +166,34 @@ public class HomeActivity extends ActionBarActivity {
 	    case FRAG_TYPE_ABOUT:
 	    	f = SimpleFragment.newInstance("HELLO!");
 	    	currentFragTag = SimpleFragment.class.getName();
+	    	break;
+	    case FRAG_TYPE_SIMPLE:
+		    
+			ArrayList<HeadedList<String, String>> info1;
+		    info1 = new ArrayList<HeadedList<String,
+		    		String>>();
+		    for(int i=0; i<5; i++){
+		    	ArrayList<String> list =
+		    			new ArrayList<String>();
+		    	for(int j=0; j<9; j++)
+		    		list.add("Hello World");
+				info1.add(new HeadedList<String,
+						String>("Header "+Integer.toString(i),
+		    			list));
+		    }
+		    
+		    f = new ListFragment(R.layout.row_list,
+		    		R.layout.header_list,
+		    		info1,
+		    		new ListItemInflationAction(),
+		    		new ListHeaderInflationAction(),
+		    		new ListOnItemClickListener());
+		    f.setRetainInstance(true);
+		    currentFragTag = ListFragment.class.getName();
+		    break;
+	    case FRAG_TYPE_WEB:
+	    	f= new AsyncTaskFragment();
+	    	currentFragTag = AsyncTaskFragment.class.getName();
 	    	break;
 	    case FRAG_TYPE_GRID:
 	    	f = new GridViewFragment();
