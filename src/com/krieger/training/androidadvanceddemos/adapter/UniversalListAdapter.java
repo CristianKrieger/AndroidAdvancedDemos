@@ -1,4 +1,4 @@
-package com.essentailab.training.androidadvanceddemos.adapter;
+package com.krieger.training.androidadvanceddemos.adapter;
 
 import java.util.ArrayList;
 
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 
-import com.essentailab.training.androidadvanceddemos.entities.HeadedList;
-import com.essentailab.training.androidadvanceddemos.interfaces.AdapterCommand;
+import com.krieger.training.androidadvanceddemos.entities.HeadedList;
+import com.krieger.training.androidadvanceddemos.interfaces.AdapterCommand;
 
 public class UniversalListAdapter implements ListAdapter{
 	

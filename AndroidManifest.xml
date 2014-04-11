@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
         <activity
-            android:name="com.essentailab.training.androidadvanceddemos.HomeActivity"
+            android:name="com.krieger.training.androidadvanceddemos.HomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

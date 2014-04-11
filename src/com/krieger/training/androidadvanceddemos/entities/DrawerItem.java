@@ -1,4 +1,4 @@
-package com.essentailab.training.androidadvanceddemos.entities;
+package com.krieger.training.androidadvanceddemos.entities;
 
 import android.graphics.drawable.Drawable;
 

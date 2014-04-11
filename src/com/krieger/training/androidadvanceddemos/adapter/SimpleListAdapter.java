@@ -1,4 +1,4 @@
-package com.essentailab.training.androidadvanceddemos.adapter;
+package com.krieger.training.androidadvanceddemos.adapter;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.essentailab.training.androidadvanceddemos.entities.DrawerItem;
+import com.krieger.training.androidadvanceddemos.entities.DrawerItem;
 
 public class SimpleListAdapter extends BaseAdapter{
 	private ArrayList<DrawerItem> data;

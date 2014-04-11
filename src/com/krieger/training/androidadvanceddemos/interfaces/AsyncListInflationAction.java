@@ -1,11 +1,11 @@
-package com.essentailab.training.androidadvanceddemos.interfaces;
+package com.krieger.training.androidadvanceddemos.interfaces;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.essentailab.training.androidadvanceddemos.R;
-import com.essentailab.training.androidadvanceddemos.entities.ListElementCookie;
+import com.krieger.training.androidadvanceddemos.entities.ListElementCookie;
 
 public class AsyncListInflationAction implements AdapterCommand{
 	@Override

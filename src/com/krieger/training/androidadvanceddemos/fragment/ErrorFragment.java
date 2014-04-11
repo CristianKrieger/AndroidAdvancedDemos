@@ -1,4 +1,4 @@
-package com.essentailab.training.androidadvanceddemos.fragment;
+package com.krieger.training.androidadvanceddemos.fragment;
 
 import com.essentailab.training.androidadvanceddemos.R;
 
@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class SimpleFragment extends Fragment{
+public class ErrorFragment extends Fragment{
 
 	private Bundle b;
 	private final static String BUNDLE_STRING = "data";
 	
 	public static Fragment newInstance(String dataToShow) {
-        Fragment f = new SimpleFragment();
+        Fragment f = new ErrorFragment();
 
         Bundle args = new Bundle();
         args.putString(BUNDLE_STRING, dataToShow);

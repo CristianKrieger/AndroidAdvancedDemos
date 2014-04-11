@@ -21,4 +21,6 @@
 	<string name="frag_simple_description">
 	    This application was developed to show some of the new capabilities of the Android Support Library and several third-party libraries.\nYou can use the Navigation Drawer on the left to select a Fragment with different functionality.\n\nThis app was created by Cristian Guerrero on July 2013, you can contact me or find the source code at:\nabout.me/cristiankrieger
 	</string>
+	
+    <string name="home_gallery_description">Gallery ImageView</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.essentailab.training.androidadvanceddemos.fragment;
+package com.krieger.training.androidadvanceddemos.fragment;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -20,9 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.essentailab.training.androidadvanceddemos.R;
-import com.essentailab.training.androidadvanceddemos.adapter.UniversalListAdapter;
-import com.essentailab.training.androidadvanceddemos.entities.ListElementCookie;
-import com.essentailab.training.androidadvanceddemos.interfaces.AsyncListInflationAction;
+import com.krieger.training.androidadvanceddemos.adapter.UniversalListAdapter;
+import com.krieger.training.androidadvanceddemos.entities.ListElementCookie;
+import com.krieger.training.androidadvanceddemos.interfaces.AsyncListInflationAction;
 
 public class AsyncTaskFragment extends Fragment{
 	private ListView lv;

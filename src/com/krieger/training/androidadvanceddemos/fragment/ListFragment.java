@@ -1,4 +1,4 @@
-package com.essentailab.training.androidadvanceddemos.fragment;
+package com.krieger.training.androidadvanceddemos.fragment;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.essentailab.training.androidadvanceddemos.R;
-import com.essentailab.training.androidadvanceddemos.adapter.UniversalListAdapter;
-import com.essentailab.training.androidadvanceddemos.interfaces.AdapterCommand;
+import com.krieger.training.androidadvanceddemos.adapter.UniversalListAdapter;
+import com.krieger.training.androidadvanceddemos.interfaces.AdapterCommand;
 
 @SuppressWarnings("unchecked")
 @SuppressLint("ValidFragment")

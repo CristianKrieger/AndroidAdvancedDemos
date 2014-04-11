@@ -17,4 +17,9 @@
         <item name="android:layout_height">2dp</item>
         <item name="android:background">@color/lv_header_underline</item>
    	</style>
+    
+    <style name="Activity_Circle" parent="android:attr/progressBarStyleLarge">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
 </resources>

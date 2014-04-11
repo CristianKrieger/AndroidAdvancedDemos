@@ -1,4 +1,4 @@
-package com.essentailab.training.androidadvanceddemos.fragment;
+package com.krieger.training.androidadvanceddemos.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
